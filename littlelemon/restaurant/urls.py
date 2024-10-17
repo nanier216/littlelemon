@@ -1,6 +1,9 @@
 from django.urls import path
-from . import views  # Import views from the current app
+from .views import MenuItemsView, SingleMenuItemView, index # Import views from the current app
 
 urlpatterns = [
-    path('', views.index, name='index'),  # Route for the index view
+    path('', index, name='index'),  # Route for the index view
+    path('menu/', MenuItemsView.as_view()),
+    path('menu/<int:pk>', SingleMenuItemView.as_view()),
+    
 ]
